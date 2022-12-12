@@ -16,7 +16,7 @@ export const getData = () => {
 
         try {
             await fetchData();
-        } catch (err) {
+        } catch (err:any) {
             dispatch(countryActions.setError(err.message))
             setTimeout(() => {
             dispatch(countryActions.setError(null))
@@ -41,7 +41,7 @@ export const getSingleData = (name:string) => {
 
         try {
             await fetchSingleData()
-        } catch (err: Error) {
+        } catch (err: any) {
             dispatch(countryActions.setError(err.message))
         }
     }

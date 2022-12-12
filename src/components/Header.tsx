@@ -3,7 +3,7 @@ import { countryActions } from '../app/countrySlice'
 import classes from './Header.module.scss'
 import { useAppSelector, useAppDispatch } from '../hooks/hooks'
 
-const Header = () => {
+const Header:React.FC = () => {
 
     const items = useAppSelector((state) => state.country.items)
     const menuIsShown = useAppSelector((state)=> state.country.menuIsShown)
@@ -69,7 +69,7 @@ const Header = () => {
             <div className={`${classes.navbar} ${menuIsShown && classes.navbar__isShown}`}>
                 <div className={classes.navbar__item}>
                     <label htmlFor="population">Показать на карте страны с численностью населения:</label>
-                    <select name="population" id="population" onChange={(e => onChangeHandler(e.target.value))}>
+                    <select name="population" id="population" onChange={(e => onChangeHandler(+(e.target.value)))}>
                         <option value={0}>Все страны</option>
                         <option value={10000000}>Более 10млн человек</option>
                         <option value={30000000}>Более 30млн человек</option>

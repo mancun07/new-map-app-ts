@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import classes from './Info.module.scss'
 import { useAppSelector, useAppDispatch } from '../hooks/hooks'
 
-const Info = () => {
+const Info:React.FC = () => {
 
     const dispatch = useAppDispatch();
     const chosenCountry = useAppSelector(state => state.country.chosenCountry)
@@ -48,7 +48,9 @@ const Info = () => {
             <div>Население: {convertedNumbersPopulation} чел.</div>
             {/* <div>Площадь: {(convertedTotalArea === '-1') ? 'Нет данных'  : (convertedTotalArea + ' км2')}</div> */}
             <div>Движение: {sideTraffic}</div>
-            <div>Официальные языки в стране: {Object.values(chosenCountry[0].languages).map((el,i, arr) => { return i !== arr.length - 1 ? <span key={i}>{el}{', '}</span> : <span key={i}>{el}</span>
+            <div>Официальные языки в стране: {Object.values(chosenCountry[0].languages)
+            .map((el:any,i, arr) => { 
+                return i !== arr.length - 1 ? <span key={i}>{el}{', '}</span> : <span key={i}>{el}</span>
             })}</div>
             <div>Валюта: {Object.values(chosenCountry[0].currencies).map((el:any, i) => {
                 return <span key={i}>{el.name}({el.symbol})</span>
