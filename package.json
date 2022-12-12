@@ -1,6 +1,6 @@
 {
   "homepage": "https://mancun07.github.io/new-map-app-TS",
-  "name": "map-app",
+  "name": "map-app-ts",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
