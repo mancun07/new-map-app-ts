@@ -48,17 +48,12 @@ export const countrySlice = createSlice({
             })
         },
         filterByLanguage: (state, action:PayloadAction<string>) => {
-            console.log('hello')
-            if (action.payload !== '') {
+    
                 state.filteredItems = state.items && state.items.filter((el:any) => {
                     let langs = el.languages && Object.values(el.languages)
              
                     return langs && langs.includes(action.payload)
                 })
-            } else {
-                state.filteredItems = state.items
-            }
-         
         },
         toggleMenu: (state) => {
             state.menuIsShown = !state.menuIsShown
