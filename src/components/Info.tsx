@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react'
 import { countryActions } from '../app/countrySlice'
-import { useDispatch, useSelector } from 'react-redux'
 import { motion } from 'framer-motion'
 import classes from './Info.module.scss'
 import { useAppSelector, useAppDispatch } from '../hooks/hooks'

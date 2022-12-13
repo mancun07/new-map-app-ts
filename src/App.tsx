@@ -18,6 +18,8 @@ function App() {
       dispatch(getData());
   }, [dispatch])
 
+
+
   return (
     <div className="app">
       <Header/>

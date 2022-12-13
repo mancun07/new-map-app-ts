@@ -1,8 +1,7 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker';
-import { useSelector } from 'react-redux';
-import { useAppSelector, useAppDispatch } from '../hooks/hooks'
+import { useAppSelector } from '../hooks/hooks'
 
 const Map:React.FC = () => {
 

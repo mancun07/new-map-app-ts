@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useState} from 'react'
 import { countryActions } from '../app/countrySlice'
 import classes from './Header.module.scss'
 import { useAppSelector, useAppDispatch } from '../hooks/hooks'
@@ -9,14 +9,6 @@ const Header:React.FC = () => {
     const menuIsShown = useAppSelector((state)=> state.country.menuIsShown)
     const dispatch = useAppDispatch();
     
-    // useEffect(() => {
-    //     if (window.innerWidth > 500) {
-    //         dispatch(countryActions.toggleMenu())
-    //     }
-    // }, [dispatch, window.innerWidth])
-
-
-
     const onChangeHandler = (value:number) => {
         dispatch(countryActions.filterByQuantity(value))
         dispatch(countryActions.toggleMenu())
@@ -62,6 +54,8 @@ const Header:React.FC = () => {
         }
     })
 
+    uniqueLanguages.unshift({language: 'Все языки', id: Math.random()})
+
     return (
         <div className={classes.header}>
             <h2>Узнай основные факты о стране (всего одним кликом!)</h2>
@@ -81,9 +75,10 @@ const Header:React.FC = () => {
                 <div className={classes.navbar__item}>
                     <label htmlFor="language">Показать на карте страны, в которых выбранный ниже язык, является официальным:</label>
                     <select  name="language" id="language" onChange={e => onChangeHandler2(e.target.value)}>
-                        <option>Все языки</option>
                     {uniqueLanguages && uniqueLanguages.map((el) => {
-                        return <option key={el.id} value={el.language}>{el.language}</option>
+                        return (
+                            <option key={el.id} value={el.language}>{el.language}</option>
+                        )
                     })}
                     </select>
                 </div>
